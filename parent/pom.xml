@@ -19,7 +19,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<prerequisites>
-		<maven>3.6.3</maven>
+		<maven>3.9.1</maven>
 	</prerequisites>
 
 	<!-- https://maven.apache.org/pom.html groupId:artifactId:version are all
@@ -33,7 +33,7 @@
 
 	<properties>
 		<!-- https://wiki.eclipse.org/Tycho/Release_Notes -->
-		<tycho.version>1.7.0</tycho.version>
+		<tycho.version>3.0.5</tycho.version>
 
 		<!-- Silence a Maven warning -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -42,7 +42,7 @@
 		<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
 
 		<!-- Eclipse provided plug-ins for signing JARs with Eclipse infra -->
-		<cbi-plugins.version>1.3.1</cbi-plugins.version>
+		<cbi-plugins.version>1.3.4</cbi-plugins.version>
 
 		<semverVersion>6.4.0</semverVersion>
 
@@ -158,31 +158,6 @@
 						<goals>
 							<goal>plugin-source</goal>
 						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.eclipse.tycho.extras</groupId>
-				<artifactId>tycho-source-feature-plugin</artifactId>
-				<version>${tycho.version}</version>
-				<configuration>
-					<archive>
-						<addMavenDescriptor>false</addMavenDescriptor>
-					</archive>
-					<reuseBrandingPlugin>false</reuseBrandingPlugin>
-				</configuration>
-				<executions>
-					<execution>
-						<id>source-feature</id>
-						<phase>package</phase>
-						<goals>
-							<goal>source-feature</goal>
-						</goals>
-						<configuration>
-							<excludes>
-								<plugin id="org.eclipse.embedcdt.doc.user" />
-							</excludes>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>

@@ -30,7 +30,7 @@ Require-Bundle: org.eclipse.embedcdt.core;bundle-version="6.4.0",
  org.eclipse.ui.editors;bundle-version="3.13.300",
  org.eclipse.ui.workbench;bundle-version="3.120.0",
  org.eclipse.cdt.ui;bundle-version="7.0.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: %bundle.vendor
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin

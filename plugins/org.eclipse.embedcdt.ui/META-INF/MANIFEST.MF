@@ -4,7 +4,7 @@ Bundle-Name: %bundle.name
 Bundle-SymbolicName: org.eclipse.embedcdt.ui;singleton:=true
 Bundle-Version: 6.4.0.qualifier
 Bundle-Activator: org.eclipse.embedcdt.internal.ui.Activator
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %bundle.vendor
 Bundle-Localization: plugin

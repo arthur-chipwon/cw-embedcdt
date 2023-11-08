@@ -4,6 +4,6 @@ Bundle-Name: %bundle.name
 Bundle-SymbolicName: org.eclipse.embedcdt.managedbuild.cross.arm;singleton:=true
 Bundle-Version: 6.4.0.qualifier
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: %bundle.vendor
 Bundle-Localization: plugin
