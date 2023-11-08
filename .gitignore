@@ -1,0 +1,10 @@
+#Maven
+target/
+.polyglot.*
+.META-INF_MANIFEST.MF
+
+bin/
+content.xml
+vscode.mac.command
+.metadata
+
