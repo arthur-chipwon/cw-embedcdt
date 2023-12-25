@@ -26,7 +26,7 @@ public class ToolchainDefinition extends org.eclipse.embedcdt.managedbuild.cross
 
 	// ------------------------------------------------------------------------
 
-	public static final String XPACK_ARM_GCC = "xPack GNU Arm Embedded GCC";
+	public static final String XPACK_ARM_GCC = "xPack GNU ARM Embedded GCC";
 
 	public static final String XPACK_AARCH64_GCC = "xPack GNU AArch64 Embedded GCC";
 
@@ -34,7 +34,9 @@ public class ToolchainDefinition extends org.eclipse.embedcdt.managedbuild.cross
 
 	public static final String GNU_TOOLS_FOR_ARM_EMBEDDED = "GNU Tools for ARM Embedded Processors";
 
-	public static final String DEFAULT_TOOLCHAIN_NAME = XPACK_ARM_GCC;
+	public static final String CWLI_XPACK_FOR_ARM_EMBEDDED = "CWLI xPack 3rd Party ARM Embedded GCC";
+
+	public static final String DEFAULT_TOOLCHAIN_NAME = CWLI_XPACK_FOR_ARM_EMBEDDED;
 
 	// ------------------------------------------------------------------------
 
@@ -214,81 +216,85 @@ public class ToolchainDefinition extends org.eclipse.embedcdt.managedbuild.cross
 	static {
 		ToolchainDefinition tc;
 
-		tc = new ToolchainDefinition(XPACK_ARM_GCC, "arm-none-eabi-");
-		tc.setId("435435382");
+		tc = new ToolchainDefinition(CWLI_XPACK_FOR_ARM_EMBEDDED, "arm-none-eabi-");
+		tc.setId("358484712");
 		addToolchain(tc);
+
+		tc = new ToolchainDefinition(XPACK_ARM_GCC, "arm-none-eabi-");
+		tc.setId("2731391862");
+		addToolchain(tc);
+
+		// 64 bit toolchains
+		// tc = new ToolchainDefinition(XPACK_AARCH64_GCC, "aarch64-none-elf-", "aarch64");
+		// tc.setId("596462749");
+		// addToolchain(tc);
 
 		tc = new ToolchainDefinition(GNU_TOOLS_FOR_ARM_EMBEDDED, "arm-none-eabi-");
 		tc.setId("1287942917");
 		addToolchain(tc);
 
-		tc = new ToolchainDefinition("Linaro ARMv7 bare-metal EABI", "arm-none-eabi-");
-		tc.setId("976189281");
-		addToolchain(tc);
+		// tc = new ToolchainDefinition("Linaro ARMv7 bare-metal EABI", "arm-none-eabi-");
+		// tc.setId("976189281");
+		// addToolchain(tc);
 
-		tc = new ToolchainDefinition("Linaro ARMv7 big-endian bare-metal EABI", "armeb-none-eabi-");
-		tc.setId("1341156853");
-		addToolchain(tc);
+		// tc = new ToolchainDefinition("Linaro ARMv7 big-endian bare-metal EABI", "armeb-none-eabi-");
+		// tc.setId("1341156853");
+		// addToolchain(tc);
 
-		tc = new ToolchainDefinition("Linaro ARMv7 Linux GNU EABI HF", "arm-linux-gnueabihf-");
-		tc.setId("4014586055");
-		addToolchain(tc);
+		// tc = new ToolchainDefinition("Linaro ARMv7 Linux GNU EABI HF", "arm-linux-gnueabihf-");
+		// tc.setId("4014586055");
+		// addToolchain(tc);
 
-		tc = new ToolchainDefinition("Linaro ARMv7 big-endian Linux GNU EABI HF", "armeb-linux-gnueabihf-");
-		tc.setId("2561104475");
-		addToolchain(tc);
+		// tc = new ToolchainDefinition("Linaro ARMv7 big-endian Linux GNU EABI HF", "armeb-linux-gnueabihf-");
+		// tc.setId("2561104475");
+		// addToolchain(tc);
 
-		tc = new ToolchainDefinition(GME_ARM_GCC, "arm-none-eabi-");
-		tc.setId("962691777");
-		tc.setIsDeprecated(true);
-		addToolchain(tc);
+		// tc = new ToolchainDefinition(GME_ARM_GCC, "arm-none-eabi-");
+		// tc.setId("962691777");
+		// tc.setIsDeprecated(true);
+		// addToolchain(tc);
 
-		tc = new ToolchainDefinition("Sourcery CodeBench Lite for ARM EABI", "arm-none-eabi-");
-		tc.setId("730666677");
-		if (EclipseUtils.isWindows()) {
-			tc.setWin("cs-make", "cs-rm");
-		}
-		tc.setIsDeprecated(true);
-		addToolchain(tc);
+		// tc = new ToolchainDefinition("Sourcery CodeBench Lite for ARM EABI", "arm-none-eabi-");
+		// tc.setId("730666677");
+		// if (EclipseUtils.isWindows()) {
+		// 	tc.setWin("cs-make", "cs-rm");
+		// }
+		// tc.setIsDeprecated(true);
+		// addToolchain(tc);
 
-		tc = new ToolchainDefinition("Sourcery CodeBench Lite for ARM GNU/Linux", "arm-none-linux-gnueabi-");
-		tc.setId("4162764353");
-		if (EclipseUtils.isWindows()) {
-			tc.setWin("cs-make", "cs-rm");
-		}
-		tc.setIsDeprecated(true);
-		addToolchain(tc);
+		// tc = new ToolchainDefinition("Sourcery CodeBench Lite for ARM GNU/Linux", "arm-none-linux-gnueabi-");
+		// tc.setId("4162764353");
+		// if (EclipseUtils.isWindows()) {
+		// 	tc.setWin("cs-make", "cs-rm");
+		// }
+		// tc.setIsDeprecated(true);
+		// addToolchain(tc);
 
-		tc = new ToolchainDefinition("devkitPro ARM EABI", "arm-eabi-");
-		tc.setId("3695067803");
-		tc.setIsDeprecated(true);
-		addToolchain(tc);
+		// tc = new ToolchainDefinition("devkitPro ARM EABI", "arm-eabi-");
+		// tc.setId("3695067803");
+		// tc.setIsDeprecated(true);
+		// addToolchain(tc);
 
-		tc = new ToolchainDefinition("Yagarto, Summon, etc. ARM EABI", "arm-none-eabi-");
-		tc.setId("1195655929");
-		tc.setIsDeprecated(true);
-		addToolchain(tc);
+		// tc = new ToolchainDefinition("Yagarto, Summon, etc. ARM EABI", "arm-none-eabi-");
+		// tc.setId("1195655929");
+		// tc.setIsDeprecated(true);
+		// addToolchain(tc);
 
-		// 64 bit toolchains
-		tc = new ToolchainDefinition(XPACK_AARCH64_GCC, "aarch64-none-elf-", "aarch64");
-		tc.setId("596462749");
-		addToolchain(tc);
+		// tc = new ToolchainDefinition("Linaro AArch64 bare-metal ELF", "aarch64-elf-", "aarch64");
+		// tc.setId("1871385609");
+		// addToolchain(tc);
 
-		tc = new ToolchainDefinition("Linaro AArch64 bare-metal ELF", "aarch64-elf-", "aarch64");
-		tc.setId("1871385609");
-		addToolchain(tc);
+		// tc = new ToolchainDefinition("Linaro AArch64 big-endian bare-metal ELF", "aarch64_be-elf-", "aarch64");
+		// tc.setId("2048201829");
+		// addToolchain(tc);
 
-		tc = new ToolchainDefinition("Linaro AArch64 big-endian bare-metal ELF", "aarch64_be-elf-", "aarch64");
-		tc.setId("2048201829");
-		addToolchain(tc);
+		// tc = new ToolchainDefinition("Linaro AArch64 Linux GNU", "aarch64-linux-gnu-", "aarch64");
+		// tc.setId("1246627524");
+		// addToolchain(tc);
 
-		tc = new ToolchainDefinition("Linaro AArch64 Linux GNU", "aarch64-linux-gnu-", "aarch64");
-		tc.setId("1246627524");
-		addToolchain(tc);
-
-		tc = new ToolchainDefinition("Linaro AArch64 big-endian Linux GNU", "aarch64_be-linux-gnu-", "aarch64");
-		tc.setId("681852136");
-		addToolchain(tc);
+		// tc = new ToolchainDefinition("Linaro AArch64 big-endian Linux GNU", "aarch64_be-linux-gnu-", "aarch64");
+		// tc.setId("681852136");
+		// addToolchain(tc);
 
 		// fgList.add(new ToolchainDefinition("Custom", "arm-none-eabi-"));
 

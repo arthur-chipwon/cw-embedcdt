@@ -460,6 +460,13 @@ public class EclipseUtils {
 			result = result.replaceAll("\\$\\{user.home\\}", userHome);
 		}
 
+		// Resolve ${user.dir}
+		if (result.indexOf("${user.dir}") >= 0) {
+			String userDir = new Path(System.getProperty("user.dir")).toString();
+			userDir = Matcher.quoteReplacement(userDir);
+			result = result.replaceAll("\\$\\{user.dir\\}", userDir);
+		}
+
 		// If more macros remain, use the usual substituter.
 		if (result.indexOf("${") >= 0) {
 			IStringVariableManager variableManager = VariablesPlugin.getDefault().getStringVariableManager();

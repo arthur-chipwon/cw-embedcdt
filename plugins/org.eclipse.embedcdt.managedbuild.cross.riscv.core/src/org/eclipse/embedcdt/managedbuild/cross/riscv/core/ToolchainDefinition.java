@@ -34,7 +34,9 @@ public class ToolchainDefinition extends org.eclipse.embedcdt.managedbuild.cross
 	public static final String RISC_V_GCC_LINUX = "RISC-V GCC/Linux";
 	public static final String RISC_V_GCC_RTEMS = "RISC-V GCC/RTEMS";
 
-	public static final String DEFAULT_TOOLCHAIN_NAME = XPACK_RISCV_GCC_2;
+	public static final String CWLI_XPACK_FOR_RISCV_EMBEDDED = "CWLI xPack 3rd Party RISCV Embedded GCC";
+
+	public static final String DEFAULT_TOOLCHAIN_NAME = CWLI_XPACK_FOR_RISCV_EMBEDDED;
 
 	// ------------------------------------------------------------------------
 
@@ -214,31 +216,39 @@ public class ToolchainDefinition extends org.eclipse.embedcdt.managedbuild.cross
 	static {
 		ToolchainDefinition tc;
 
-		tc = new ToolchainDefinition(XPACK_RISCV_GCC_2, "riscv-none-elf-");
-		tc.setId("2273142913"); // 2273142912+1
+		tc = new ToolchainDefinition(CWLI_XPACK_FOR_RISCV_EMBEDDED, "riscv-none-elf-");
+		tc.setId("3315057877");
 		addToolchain(tc);
 
-		tc = new ToolchainDefinition(RISC_V_GCC_NEWLIB, "riscv64-unknown-elf-");
-		tc.setId("2262347901");
-		addToolchain(tc);
-
-		tc = new ToolchainDefinition(RISC_V_GCC_LINUX, "riscv64-unknown-linux-gnu-");
-		tc.setId("3950568028");
-		addToolchain(tc);
-
-		tc = new ToolchainDefinition(RISC_V_GCC_RTEMS, "riscv64-unknown-rtems-");
-		tc.setId("3955442865");
-		addToolchain(tc);
-
-		tc = new ToolchainDefinition(XPACK_RISCV_GCC, "riscv-none-embed-");
+		tc = new ToolchainDefinition(XPACK_RISCV_GCC, "riscv-none-elf-");
 		tc.setId("2273142912");
-		tc.setIsDeprecated(true);
 		addToolchain(tc);
 
-		tc = new ToolchainDefinition(GME_RISCV_GCC, "riscv-none-embed-");
-		tc.setId("512258282");
-		tc.setIsDeprecated(true);
-		addToolchain(tc);
+		// tc = new ToolchainDefinition(XPACK_RISCV_GCC_2, "riscv-none-elf-");
+		// tc.setId("2273142913"); // 2273142912+1
+		// addToolchain(tc);
+
+		// tc = new ToolchainDefinition(RISC_V_GCC_NEWLIB, "riscv64-unknown-elf-");
+		// tc.setId("2262347901");
+		// addToolchain(tc);
+
+		// tc = new ToolchainDefinition(RISC_V_GCC_LINUX, "riscv64-unknown-linux-gnu-");
+		// tc.setId("3950568028");
+		// addToolchain(tc);
+
+		// tc = new ToolchainDefinition(RISC_V_GCC_RTEMS, "riscv64-unknown-rtems-");
+		// tc.setId("3955442865");
+		// addToolchain(tc);
+
+		// tc = new ToolchainDefinition(XPACK_RISCV_GCC, "riscv-none-embed-");
+		// tc.setId("2273142912");
+		// tc.setIsDeprecated(true);
+		// addToolchain(tc);
+
+		// tc = new ToolchainDefinition(GME_RISCV_GCC, "riscv-none-embed-");
+		// tc.setId("512258282");
+		// tc.setIsDeprecated(true);
+		// addToolchain(tc);
 
 		// Enumerate extension points and add custom toolchains.
 		addExtensionsToolchains(CUSTOM_TOOLCHAINS_EXTENSION_POINT_ID);
