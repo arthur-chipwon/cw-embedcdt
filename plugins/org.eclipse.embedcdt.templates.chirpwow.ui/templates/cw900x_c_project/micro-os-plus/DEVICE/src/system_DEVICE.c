@@ -53,7 +53,7 @@
 #define __XTAL            (12000000UL)    /* Oscillator frequency             */
 #define __SYS_OSC_CLK     (    ___HSI)    /* Main oscillator frequency        */
 
-#define __SYSTEM_CLOCK    ($(CWxtalValue)UL)
+#define __SYSTEM_CLOCK    ($(CW900XxtalValue)UL)
 
 
 /*----------------------------------------------------------------------------

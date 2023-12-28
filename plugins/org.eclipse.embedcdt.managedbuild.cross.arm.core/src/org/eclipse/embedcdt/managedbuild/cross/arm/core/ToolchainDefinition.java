@@ -26,7 +26,7 @@ public class ToolchainDefinition extends org.eclipse.embedcdt.managedbuild.cross
 
 	// ------------------------------------------------------------------------
 
-	public static final String XPACK_ARM_GCC = "xPack GNU ARM Embedded GCC";
+	public static final String XPACK_ARM_GCC = "xPack GNU Arm Embedded GCC";
 
 	public static final String XPACK_AARCH64_GCC = "xPack GNU AArch64 Embedded GCC";
 
@@ -34,7 +34,7 @@ public class ToolchainDefinition extends org.eclipse.embedcdt.managedbuild.cross
 
 	public static final String GNU_TOOLS_FOR_ARM_EMBEDDED = "GNU Tools for ARM Embedded Processors";
 
-	public static final String CWLI_XPACK_FOR_ARM_EMBEDDED = "CWLI xPack 3rd Party ARM Embedded GCC";
+	public static final String CWLI_XPACK_FOR_ARM_EMBEDDED = "CWLI xPack 3rd Party Arm Embedded GCC";
 
 	public static final String DEFAULT_TOOLCHAIN_NAME = CWLI_XPACK_FOR_ARM_EMBEDDED;
 

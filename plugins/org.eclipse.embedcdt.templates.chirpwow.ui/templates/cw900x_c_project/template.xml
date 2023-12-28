@@ -11,22 +11,22 @@ of the Eclipse Public License 2.0 which accompanies this distribution, \
 and is available athttps://www.eclipse.org/legal/epl-2.0/
  at
  atSPDX-License-Identifier: EPL-2.0"
-	id="CW_Project"
-	label="%CW.template.label"
-	description="%CW.template.description"
+	id="CW900X_Project"
+	label="%CW900X.template.label"
+	description="%CW900X.template.description"
 	help="help.html">
 
 	<property-group
 		id="chip"
-		label="%CW.group.target.label"
-		description="%CW.group.target.description"
+		label="%CW900X.group.target.label"
+		description="%CW900X.group.target.description"
 		type="PAGES-ONLY"
 		help="help.html">
 
 		<property
-			id="CWcore"
-			label="%CW.core.label"
-			description="%CW.core.description"
+			id="CW900Xcore"
+			label="%CW900X.core.label"
+			description="%CW900X.core.description"
 			type="select"
 			default="cortex-m0"
 			hidden="false"
@@ -40,31 +40,31 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 		</property>
 
 		<property
-			id="CWxtalValue"
-			label="%CW.xtalValue.label"
-			description="%CW.xtalValue.description"
+			id="CW900XxtalValue"
+			label="%CW900X.xtalValue.label"
+			description="%CW900X.xtalValue.description"
 			type="input"
 			pattern="[0-9]*"
-			default="%CW.xtalValue.default"
+			default="%CW900X.xtalValue.default"
 			hidden="false"
 			persist="true" />
 
 		<property
-			id="CWflashSize"
-			label="%CW.flashSize.label"
-			description="%CW.flashSize.description"
+			id="CW900XflashSize"
+			label="%CW900X.flashSize.label"
+			description="%CW900X.flashSize.description"
 			type="input"
 			pattern="[0-9]*"
-			default="%CW.flashSize.default"
+			default="%CW900X.flashSize.default"
 			hidden="false"
 			persist="true" />
 		<property
-			id="CWramSize"
-			label="%CW.ramSize.label"
-			description="%CW.ramSize.description"
+			id="CW900XramSize"
+			label="%CW900X.ramSize.label"
+			description="%CW900X.ramSize.description"
 			type="input"
 			pattern="[0-9]*"
-			default="%CW.ramSize.default"
+			default="%CW900X.ramSize.default"
 			hidden="false"
 			persist="true" />
 
@@ -724,7 +724,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 
 	<!-- Vendor CMSIS files -->
 	<if condition="1==1">
-		<!-- Vendor/DEVICE/include -->
+		<!-- micro-os-plus/DEVICE/include -->
 		<process type="org.eclipse.cdt.core.AddFiles">
 			<simple
 				name="projectName"
@@ -733,7 +733,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
-						value="Vendor/DEVICE/include/README_DEVICE.txt" />
+						value="micro-os-plus/DEVICE/include/README_DEVICE.txt" />
 					<simple
 						name="target"
 						value="$(sysDir)/$(includeDir)/$(cmsisDir)/README_DEVICE.txt" />
@@ -744,7 +744,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
-						value="Vendor/DEVICE/include/DEVICE.h" />
+						value="micro-os-plus/DEVICE/include/DEVICE.h" />
 					<simple
 						name="target"
 						value="$(sysDir)/$(includeDir)/$(cmsisDir)/$(CMSIS_name).h" />
@@ -755,7 +755,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
-						value="Vendor/DEVICE/include/system_DEVICE.h" />
+						value="micro-os-plus/DEVICE/include/system_DEVICE.h" />
 					<simple
 						name="target"
 						value="$(sysDir)/$(includeDir)/$(cmsisDir)/system_$(CMSIS_name).h" />
@@ -793,7 +793,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
-						value="Vendor/DEVICE/src/README_DEVICE.txt" />
+						value="micro-os-plus/DEVICE/src/README_DEVICE.txt" />
 					<simple
 						name="target"
 						value="$(sysDir)/$(sourceDir)/$(cmsisDir)/README_DEVICE.txt" />
@@ -804,7 +804,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
-						value="Vendor/DEVICE/src/system_DEVICE.c" />
+						value="micro-os-plus/DEVICE/src/system_DEVICE.c" />
 					<simple
 						name="target"
 						value="$(sysDir)/$(sourceDir)/$(cmsisDir)/system_$(CMSIS_name).c" />
@@ -815,7 +815,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
-						value="Vendor/DEVICE/src/vectors_DEVICE.c" />
+						value="micro-os-plus/DEVICE/src/vectors_DEVICE.c" />
 					<simple
 						name="target"
 						value="$(sysDir)/$(sourceDir)/$(cmsisDir)/vectors_$(CMSIS_name).c" />
@@ -990,7 +990,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 
 	<!-- Peripheral library -->
 	<if condition="1==1">
-		<!-- Vendor/DRIVERS/include & src READMEs -->
+		<!-- micro-os-plus/DRIVERS/include & src READMEs -->
 		<process type="org.eclipse.cdt.core.AddFiles">
 			<simple
 				name="projectName"
@@ -999,7 +999,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
-						value="Vendor/DRIVERS/include/README_DRIVERS.txt" />
+						value="micro-os-plus/DRIVERS/include/README_DRIVERS.txt" />
 					<simple
 						name="target"
 						value="$(sysDir)/$(includeDir)/$(CMSIS_name)/README_DRIVERS.txt" />
@@ -1010,7 +1010,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
-						value="Vendor/DRIVERS/src/README_DRIVERS.txt" />
+						value="micro-os-plus/DRIVERS/src/README_DRIVERS.txt" />
 					<simple
 						name="target"
 						value="$(sysDir)/$(sourceDir)/$(CMSIS_name)/README_DRIVERS.txt" />
@@ -1091,7 +1091,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 						value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.family" />
 					<simple
 						name="value"
-						value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.$(CWcore)" />
+						value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.$(CW900Xcore)" />
 					<simple
 						name="path"
 						value="" />

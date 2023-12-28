@@ -34,7 +34,7 @@ public class ToolchainDefinition extends org.eclipse.embedcdt.managedbuild.cross
 	public static final String RISC_V_GCC_LINUX = "RISC-V GCC/Linux";
 	public static final String RISC_V_GCC_RTEMS = "RISC-V GCC/RTEMS";
 
-	public static final String CWLI_XPACK_FOR_RISCV_EMBEDDED = "CWLI xPack 3rd Party RISCV Embedded GCC";
+	public static final String CWLI_XPACK_FOR_RISCV_EMBEDDED = "CWLI xPack 3rd Party RISC-V Embedded GCC";
 
 	public static final String DEFAULT_TOOLCHAIN_NAME = CWLI_XPACK_FOR_RISCV_EMBEDDED;
 
@@ -217,7 +217,7 @@ public class ToolchainDefinition extends org.eclipse.embedcdt.managedbuild.cross
 		ToolchainDefinition tc;
 
 		tc = new ToolchainDefinition(CWLI_XPACK_FOR_RISCV_EMBEDDED, "riscv-none-elf-");
-		tc.setId("3315057877");
+		tc.setId("1862962126");
 		addToolchain(tc);
 
 		tc = new ToolchainDefinition(XPACK_RISCV_GCC, "riscv-none-elf-");

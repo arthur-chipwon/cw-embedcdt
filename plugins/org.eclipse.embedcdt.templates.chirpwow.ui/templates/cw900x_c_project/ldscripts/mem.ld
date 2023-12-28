@@ -40,8 +40,8 @@
 
 MEMORY
 {
-  FLASH (rx) : ORIGIN = 0x00000000, LENGTH = $(CWflashSize)K
-  RAM (xrw) : ORIGIN = 0x20000000, LENGTH = $(CWramSize)K
+  FLASH (rx) : ORIGIN = 0x00000000, LENGTH = $(CW900XflashSize)K
+  RAM (xrw) : ORIGIN = 0x20000000, LENGTH = $(CW900XramSize)K
 
   /*
    * Optional sections; define the origin and length to match
