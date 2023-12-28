@@ -24,6 +24,9 @@
    <feature id="org.eclipse.embedcdt.managedbuild.cross.riscv">
       <category name="org.eclipse.embedcdt.category"/>
    </feature>
+   <feature id="org.eclipse.embedcdt.templates.chirpwow">
+      <category name="org.eclipse.embedcdt.category"/>
+   </feature>
    <feature id="org.eclipse.embedcdt.templates.stm">
       <category name="org.eclipse.embedcdt.category"/>
    </feature>
@@ -71,6 +74,9 @@
       <category name="org.eclipse.embedcdt.category.source"/>
    </feature>
    <feature id="org.eclipse.embedcdt.managedbuild.cross.riscv.source">
+      <category name="org.eclipse.embedcdt.category.source"/>
+   </feature>
+   <feature id="org.eclipse.embedcdt.templates.chirpwow.source">
       <category name="org.eclipse.embedcdt.category.source"/>
    </feature>
    <feature id="org.eclipse.embedcdt.templates.stm.source">

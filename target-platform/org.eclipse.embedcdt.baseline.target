@@ -36,6 +36,8 @@
 			<unit id="org.eclipse.embedcdt.packs.source.feature.group" version="6.4.0.202307251916"/>
 			<unit id="org.eclipse.embedcdt.templates.ad.feature.group" version="6.4.0.202307251916"/>
 			<unit id="org.eclipse.embedcdt.templates.ad.source.feature.group" version="6.4.0.202307251916"/>
+			<unit id="org.eclipse.embedcdt.templates.chirpwow.feature.group" version="6.4.0.202307251916"/>
+			<unit id="org.eclipse.embedcdt.templates.chirpwow.source.feature.group" version="6.4.0.202307251916"/>
 			<unit id="org.eclipse.embedcdt.templates.cortexm.feature.group" version="6.4.0.202307251916"/>
 			<unit id="org.eclipse.embedcdt.templates.cortexm.source.feature.group" version="6.4.0.202307251916"/>
 			<unit id="org.eclipse.embedcdt.templates.freescale.feature.group" version="6.4.0.202307251916"/>

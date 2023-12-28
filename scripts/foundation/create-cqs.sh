@@ -48,7 +48,7 @@ mkdir -p ${dest_path}
 
 
 cd ${dest_path}
-mkdir -p main semver template-core template-stm template-ad template-freescale template-cortexm
+mkdir -p main semver template-core template-stm template-ad template-freescale template-chirpwow template-cortexm
 
 echo
 echo "Copy the entire Git repo..."
@@ -67,6 +67,10 @@ mv -v "main/plugins/org.eclipse.embedcdt.core/src/com/github/zafarkhaja/semver"/
 echo
 echo "Move the ad folders..."
 mv -v "main/plugins/org.eclipse.embedcdt.templates.ad/templates/aducm36x_exe_c_project/vendor"/* template-ad
+
+echo
+echo "Move the chirpwow folders..."
+mv -v "main/plugins/org.eclipse.embedcdt.templates.chirpwow/templates/micro-os-plus"/* template-chirpwow
 
 echo
 echo "Move the freescale folders..."
@@ -90,6 +94,9 @@ mv -v "main/plugins/org.eclipse.embedcdt.templates.cortexm/templates/"/* templat
 
 mkdir -p template-core/sifive
 mv -v "main/plugins/org.eclipse.embedcdt.templates.sifive/templates/"* template-core/sifive
+
+mkdir -p template-core/chirpwow
+mv -v "main/plugins/org.eclipse.embedcdt.templates.chirpwow/templates"/* template-core/chirpwow
 
 mkdir -p template-core/stm
 mv -v "main/plugins/org.eclipse.embedcdt.templates.stm/templates"/* template-core/stm
@@ -117,6 +124,9 @@ echo "template-ad-${version}.zip done"
 echo
 zip -r "template-cortexm-${version}.zip" "template-cortexm"
 echo "template-cortexm-${version}.zip done"
+echo
+zip -r "template-chirpwow-${version}.zip" "template-chirpwow"
+echo "template-chirpwow-${version}.zip done"
 echo
 zip -r "template-freescale-${version}.zip" "template-freescale"
 echo "template-freescale-${version}.zip done"
