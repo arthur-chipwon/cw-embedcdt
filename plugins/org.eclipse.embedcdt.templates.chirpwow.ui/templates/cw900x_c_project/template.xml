@@ -227,11 +227,11 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 			persist="true" />
 
 		<property
-			id="deviceName"
-			label="%deviceName.label"
-			description="%deviceName.description"
+			id="driverDir"
+			label="%driverDir.label"
+			description="%driverDir.description"
 			type="input"
-			default="%deviceName.default"
+			default="%driverDir.default"
 			pattern="[a-zA-Z0-9/]+"
 			mandatory="true"
 			persist="true" />
@@ -365,7 +365,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				value="devicePeriph" />
 			<simple
 				name="propertyValue"
-				value="$(deviceName)" />
+				value="$(driverDir)" />
 		</process>
 	</if>
 
@@ -1010,7 +1010,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 						value="micro-os-plus/DRIVERS/include/README_DRIVERS.txt" />
 					<simple
 						name="target"
-						value="$(sysDir)/$(includeDir)/$(deviceName)/README_DRIVERS.txt" />
+						value="$(sysDir)/$(includeDir)/$(driverDir)/README_DRIVERS.txt" />
 					<simple
 						name="replaceable"
 						value="true" />
@@ -1021,7 +1021,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 						value="micro-os-plus/DRIVERS/src/README_DRIVERS.txt" />
 					<simple
 						name="target"
-						value="$(sysDir)/$(sourceDir)/$(deviceName)/README_DRIVERS.txt" />
+						value="$(sysDir)/$(sourceDir)/$(driverDir)/README_DRIVERS.txt" />
 					<simple
 						name="replaceable"
 						value="true" />
