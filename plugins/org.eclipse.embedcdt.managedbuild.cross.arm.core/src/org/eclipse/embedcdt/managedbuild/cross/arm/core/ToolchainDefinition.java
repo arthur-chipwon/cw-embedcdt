@@ -217,11 +217,11 @@ public class ToolchainDefinition extends org.eclipse.embedcdt.managedbuild.cross
 		ToolchainDefinition tc;
 
 		tc = new ToolchainDefinition(CWLI_XPACK_FOR_ARM_EMBEDDED, "arm-none-eabi-");
-		tc.setId("358484712");
+		tc.setId("2357495528");
 		addToolchain(tc);
 
 		tc = new ToolchainDefinition(XPACK_ARM_GCC, "arm-none-eabi-");
-		tc.setId("2731391862");
+		tc.setId("435435382");
 		addToolchain(tc);
 
 		// 64 bit toolchains

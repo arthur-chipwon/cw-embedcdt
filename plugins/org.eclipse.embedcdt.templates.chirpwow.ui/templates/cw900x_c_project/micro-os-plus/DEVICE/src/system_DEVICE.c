@@ -37,7 +37,7 @@
 
 
 #include <stdint.h>
-#include "$(deviceName).h"
+#include "$(CMSIS_name).h"
 
 
 /*----------------------------------------------------------------------------

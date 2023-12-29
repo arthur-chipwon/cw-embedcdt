@@ -87,7 +87,7 @@ pHandler __isr_vectors[] =
         SysTick_Handler,                          // The SysTick handler
 
         // ----------------------------------------------------------------------
-        // $(deviceName) vectors
+        // $(CMSIS_name) vectors
         DeviceInterrupt_Handler,                  // Device specific
     // TODO: rename and add more vectors here
     };

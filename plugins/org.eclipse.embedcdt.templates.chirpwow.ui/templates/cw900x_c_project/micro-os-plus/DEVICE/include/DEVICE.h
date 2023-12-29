@@ -149,7 +149,7 @@ typedef enum IRQn
 
 /* ToDo: include your system_<Device>.h file
          replace '<Device>' with your device name                                                 */
-#include "system_$(deviceName).h"                /* <Device> System  include file                      */
+#include "system_$(CMSIS_name).h"                /* <Device> System  include file                      */
 
 
 /******************************************************************************/

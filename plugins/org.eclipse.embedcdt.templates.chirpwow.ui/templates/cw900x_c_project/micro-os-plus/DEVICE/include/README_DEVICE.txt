@@ -1,4 +1,4 @@
-The "$(deviceName).h" and "system_$(deviceName).h" files are provided 
+The "$(CMSIS_name).h" and "system_$(CMSIS_name).h" files are provided 
 only as a functional sample.
 
 For real applications they must be replaced by the vendor provided files.

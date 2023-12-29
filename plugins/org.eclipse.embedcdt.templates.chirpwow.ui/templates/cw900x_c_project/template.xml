@@ -273,9 +273,17 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 			default="undefined"
 			persist="false" />
 
+		<property
+			id="deviceChip"
+			label="Chip/Platform/Board/CMSIS-device name"
+			mandatory="true"
+			hidden="true"
+			default="cw900x"
+			persist="false" />
+
 	</property-group>
 
-	<!-- Note: the redundant 'condition="1==1"' is a workaround to control the 
+	<!-- Note: the redundant 'condition="1==1"' is a workaround to control the
 		evaluation order. Without it, processes are evaluated after all ifs. -->
 
 	<if condition="1==1">
@@ -342,7 +350,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				value="CMSIS_name" />
 			<simple
 				name="propertyValue"
-				value="$(deviceName)" />
+				value="$(deviceChip)" />
 		</process>
 
 		<process type="org.eclipse.embedcdt.templates.core.ConditionalSetProperty">
@@ -722,7 +730,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 
 	<!-- ================================================================== -->
 
-	<!-- Vendor CMSIS files -->
+	<!-- CMSIS-device(vendor chip/platform/board part number) files -->
 	<if condition="1==1">
 		<!-- micro-os-plus/DEVICE/include -->
 		<process type="org.eclipse.cdt.core.AddFiles">
@@ -1002,7 +1010,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 						value="micro-os-plus/DRIVERS/include/README_DRIVERS.txt" />
 					<simple
 						name="target"
-						value="$(sysDir)/$(includeDir)/$(CMSIS_name)/README_DRIVERS.txt" />
+						value="$(sysDir)/$(includeDir)/$(deviceName)/README_DRIVERS.txt" />
 					<simple
 						name="replaceable"
 						value="true" />
@@ -1013,7 +1021,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 						value="micro-os-plus/DRIVERS/src/README_DRIVERS.txt" />
 					<simple
 						name="target"
-						value="$(sysDir)/$(sourceDir)/$(CMSIS_name)/README_DRIVERS.txt" />
+						value="$(sysDir)/$(sourceDir)/$(deviceName)/README_DRIVERS.txt" />
 					<simple
 						name="replaceable"
 						value="true" />
