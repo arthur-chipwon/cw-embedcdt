@@ -1,7 +1,7 @@
 /**************************************************************************//**
- * @file     <Device>.h
+ * @file     $(CMSIS_name).h
  * @brief    CMSIS Cortex-M# Core Peripheral Access Layer Header File for
- *           Device <Device>
+ *           Device $(CMSIS_nameUppercase)
  * @version  V3.10
  * @date     23. November 2012
  *
@@ -36,8 +36,8 @@
    ---------------------------------------------------------------------------*/
 
 
-#ifndef Device_H      /* ToDo: replace '<Device>' with your device name */
-#define Device_H
+#ifndef $(CMSIS_nameUppercase)_H      /* ToDo: replace '<Device>' with your device name */
+#define $(CMSIS_nameUppercase)_H
 
 #ifdef __cplusplus
  extern "C" {
@@ -237,4 +237,4 @@ typedef struct
 }
 #endif
 
-#endif  /* <Device>_H */
+#endif  /* $(CMSIS_nameUppercase)_H */

@@ -1,7 +1,7 @@
 /**************************************************************************//**
- * @file     system_<Device>.c
+ * @file     system_$(CMSIS_name).c
  * @brief    CMSIS Cortex-M# Device Peripheral Access Layer Source File for
- *           Device <Device>
+ *           Device $(CMSIS_nameUppercase)
  * @version  V3.10
  * @date     23. November 2012
  *

@@ -1,7 +1,7 @@
 /**************************************************************************//**
- * @file     system_<Device>.h
+ * @file     system_$(CMSIS_name).h
  * @brief    CMSIS Cortex-M# Device Peripheral Access Layer Header File for
- *           Device <Device>
+ *           Device $(CMSIS_nameUppercase)
  * @version  V3.10
  * @date     23. November 2012
  *
@@ -36,8 +36,8 @@
    ---------------------------------------------------------------------------*/
 
 
-#ifndef SYSTEM_Device_H   /* ToDo: replace '<Device>' with your device name */
-#define SYSTEM_Device_H
+#ifndef SYSTEM_$(CMSIS_nameUppercase)_H   /* ToDo: replace '<Device>' with your device name */
+#define SYSTEM_$(CMSIS_nameUppercase)_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -74,4 +74,4 @@ extern void SystemCoreClockUpdate (void);
 }
 #endif
 
-#endif /* SYSTEM_<Device>_H */
+#endif /* SYSTEM_$(CMSIS_nameUppercase)_H */

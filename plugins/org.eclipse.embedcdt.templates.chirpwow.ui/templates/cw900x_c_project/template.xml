@@ -257,7 +257,16 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 
 		<property
 			id="CMSIS_name"
-			label="CMSIS specific header name"
+			label="CMSIS_Device specific header name"
+			description="Will be set to the vendor specific part of header names"
+			mandatory="true"
+			hidden="true"
+			default="undefined"
+			persist="false" />
+
+		<property
+			id="CMSIS_nameUppercase"
+			label="CMSIS_Device specific header name"
 			description="Will be set to the vendor specific part of header names"
 			mandatory="true"
 			hidden="true"
@@ -279,6 +288,14 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 			mandatory="true"
 			hidden="true"
 			default="cw900x"
+			persist="false" />
+
+		<property
+			id="deviceChipUppercase"
+			label="Chip/Platform/Board name"
+			mandatory="true"
+			hidden="true"
+			default="CW900X"
 			persist="false" />
 
 	</property-group>
@@ -351,6 +368,21 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 			<simple
 				name="propertyValue"
 				value="$(deviceChip)" />
+		</process>
+
+		<process type="org.eclipse.embedcdt.templates.core.ConditionalSetProperty">
+			<simple
+				name="projectName"
+				value="$(projectName)" />
+			<simple
+				name="condition"
+				value="" />
+			<simple
+				name="propertyName"
+				value="CMSIS_nameUppercase" />
+			<simple
+				name="propertyValue"
+				value="$(deviceChipUppercase)" />
 		</process>
 
 		<process type="org.eclipse.embedcdt.templates.core.ConditionalSetProperty">
