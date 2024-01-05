@@ -1,77 +1,120 @@
-/**************************************************************************//**
- * @file     system_$(CMSIS_name).h
- * @brief    CMSIS Cortex-M# Device Peripheral Access Layer Header File for
- *           Device $(CMSIS_nameUppercase)
- * @version  V3.10
- * @date     23. November 2012
+/**
+ * @file system_cw900x.h
+ * @brief The file is generated from CMSIS-Core(M) System Configuration Files.
+ * @copyright Copyright (c) 2023 ChipWon Technology. All rights reserved.
+ */
+/*
+ * Copyright (c) 2009-2021 Arm Limited. All rights reserved.
  *
- * @note
+ * SPDX-License-Identifier: Apache-2.0
  *
- ******************************************************************************/
-/* Copyright (c) 2012 ARM LIMITED
+ * Licensed under the Apache License, Version 2.0 (the License); you may
+ * not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an AS IS BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-   All rights reserved.
-   Redistribution and use in source and binary forms, with or without
-   modification, are permitted provided that the following conditions are met:
-   - Redistributions of source code must retain the above copyright
-     notice, this list of conditions and the following disclaimer.
-   - Redistributions in binary form must reproduce the above copyright
-     notice, this list of conditions and the following disclaimer in the
-     documentation and/or other materials provided with the distribution.
-   - Neither the name of ARM nor the names of its contributors may be used
-     to endorse or promote products derived from this software without
-     specific prior written permission.
-   *
-   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-   AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-   ARE DISCLAIMED. IN NO EVENT SHALL COPYRIGHT HOLDERS AND CONTRIBUTORS BE
-   LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-   CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-   SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-   INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-   CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-   POSSIBILITY OF SUCH DAMAGE.
-   ---------------------------------------------------------------------------*/
-
-
-#ifndef SYSTEM_$(CMSIS_nameUppercase)_H   /* ToDo: replace '<Device>' with your device name */
+#ifndef SYSTEM_$(CMSIS_nameUppercase)_H
 #define SYSTEM_$(CMSIS_nameUppercase)_H
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+/*******************************************************************************
+ * Includes
+ ******************************************************************************/
 #include <stdint.h>
 
-extern uint32_t SystemCoreClock;     /*!< System Clock Frequency (Core Clock)  */
+/*******************************************************************************
+ * Macros, defines, enumerations, structures(with typedefs)
+ ******************************************************************************/
+/* Watchdog disable */
+#ifndef DISABLE_WDOG
+#define DISABLE_WDOG 1
+#endif
 
+/* Value of the external crystal or oscillator clock frequency in Hz */
+#ifndef CPU_XTAL_CLK_HZ
+#define CPU_XTAL_CLK_HZ (8000000ul)
+#endif
+
+/* Value of the fast internal oscillator clock frequency in Hz  */
+#ifndef CPU_INT_FAST_CLK_HZ
+#define CPU_INT_FAST_CLK_HZ (48000000ul)
+#endif
+
+/* Default System clock value */
+#ifndef DEFAULT_SYSTEM_CLOCK
+#define DEFAULT_SYSTEM_CLOCK ($(CW900XxtalValue)ul)
+#endif
+
+/*******************************************************************************
+ * Typedefs
+ ******************************************************************************/
+
+/*******************************************************************************
+ * Exported variables
+ ******************************************************************************/
+/**
+ * @brief System clock frequency (core clock)
+ *
+ * The system clock frequency supplied to the SysTick timer and the
+ * processor core clock. This variable can be used by the user application
+ * to setup the SysTick timer or configure other parameters. It may also be
+ * used by debugger to query the frequency of the debug timer or configure
+ * the trace clock speed g_system_core_clock is initialized with a correct
+ * predefined value.
+ */
+extern uint32_t g_system_core_clock;
+
+/*******************************************************************************
+ * Global inline function definitions
+ ******************************************************************************/
+
+/*******************************************************************************
+ * Global function prototypes
+ ******************************************************************************/
+/**
+ * @brief Setup the SoC.
+ *
+ * This function disables the watchdog.
+ * if the corresponding feature macro is enabled.
+ * SystemInit is called from startup_device file.
+ */
+void SystemInit(void);
 
 /**
- * Initialize the system
+ * @brief Updates the g_system_core_clock variable.
  *
- * @param  none
- * @return none
+ * It must be called whenever the core clock is changed during program
+ * execution. SystemCoreClockUpdate() evaluates the clock register settings
+ * and calculates the current core clock. This function must be called when
+ * user does not want to use clock manager component. If clock manager is
+ * used, the clock_get_freq function must be used with CORE_CLOCK
+ * parameter.
  *
- * @brief  Setup the microcontroller system.
- *         Initialize the System and update the SystemCoreClock variable.
  */
-extern void SystemInit (void);
+void SystemCoreClockUpdate(void);
 
 /**
- * Update SystemCoreClock variable
+ * @brief Initiates a system reset.
  *
- * @param  none
- * @return none
- *
- * @brief  Updates the SystemCoreClock with current core Clock
- *         retrieved from cpu registers.
+ * This function is used to initiate a system reset
  */
-extern void SystemCoreClockUpdate (void);
+void SystemSoftwareReset(void);
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif /* SYSTEM_$(CMSIS_nameUppercase)_H */
+
+/*** end of file ***/

@@ -1,21 +1,21 @@
-The "system_$(CMSIS_name).c" and "vectors_$(CMSIS_name).c" files are provided 
+The "system_$(CMSIS_name).c" and "startup_$(CMSIS_name).c" files are provided
 only as a functional sample.
 
-For real applications they must be replaced with the files 
+For real applications they must be replaced with the files
 provided by the vendor.
 
 Extensions to the ARM CMSIS files:
 
-- the assembly startup file was reimplemented in C, and split into 
+- the assembly startup file was reimplemented in C, and split into
 multiple files, portable for the entire Cortex-M family:
 
 	src/corelib/startup.c
 	src/cortexm/exception-handlers.c
-	
+
 - the chip interrupt handlers must be added to the file
 
-	src/cmsis/vectors_$(CMSIS_name).c
-	
+	src/cmsis/startup_$(CMSIS_name).c
+
 
 Use of assembly files
 ---------------------

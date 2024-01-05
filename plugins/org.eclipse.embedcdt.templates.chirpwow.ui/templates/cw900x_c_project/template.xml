@@ -155,6 +155,15 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 			persist="true" />
 
 		<property
+			id="excludeUnused"
+			label="%excludeUnused.label"
+			description="%excludeUnused.description"
+			type="boolean"
+			default="true"
+			hidden="false"
+			persist="true" />
+
+		<property
 			id="useLto"
 			label="%useLto.label"
 			description="%useLto.description"
@@ -405,47 +414,15 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 
 	<!-- Create include header folders -->
 	<!-- The order must be: -->
-	<!-- include -->
-	<!-- system/include -->
-	<!-- system/include/cmsis -->
-	<!-- system/include/$(devicePeriph) -->
+	<!-- system/$(includeDir) -->
+	<!-- system/$(includeDir)/$(cmsisDir) -->
+	<!-- system/$(includeDir)/$(newlibDir) -->
+	<!-- system/$(includeDir)/$(devicePeriph) -->
+	<!-- $(includeDir) -->
 
 	<if condition="1==1">
-		<!-- include -->
-		<process type="org.eclipse.cdt.core.CreateFolder">
-			<simple
-				name="projectName"
-				value="$(projectName)" />
-			<simple
-				name="path"
-				value="$(includeDir)" />
-		</process>
-
-		<!-- add to include paths -->
-		<process
-			type="org.eclipse.cdt.managedbuilder.core.AppendToMBSStringListOptionValues">
-			<simple
-				name="projectName"
-				value="$(projectName)" />
-			<complex-array name="resourcePaths">
-				<element>
-					<simple
-						name="id"
-						value="ilg.gnuarmeclipse.managedbuild.cross.option.*.include.paths" />
-					<simple-array name="values">
-						<element value="&quot;../$(includeDir)&quot;" />
-					</simple-array>
-					<simple
-						name="path"
-						value="" />
-				</element>
-			</complex-array>
-		</process>
-	</if>
-
-	<if condition="1==1">
-		<!-- system/include -->
-		<!-- system/include/cmsis -->
+		<!-- system/$(includeDir) -->
+		<!-- system/$(includeDir)/$(cmsisDir) -->
 		<process type="org.eclipse.cdt.core.CreateFolder">
 			<simple
 				name="projectName"
@@ -489,7 +466,40 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 	</if>
 
 	<if condition="1==1">
-		<!-- system/include/$(devicePeriph) -->
+		<!-- system/$(includeDir)/$(newlibDir) -->
+		<process type="org.eclipse.cdt.core.CreateFolder">
+			<simple
+				name="projectName"
+				value="$(projectName)" />
+			<simple
+				name="path"
+				value="$(sysDir)/$(includeDir)/$(newlibDir)" />
+		</process>
+
+		<!-- add to include paths -->
+		<process
+			type="org.eclipse.cdt.managedbuilder.core.AppendToMBSStringListOptionValues">
+			<simple
+				name="projectName"
+				value="$(projectName)" />
+			<complex-array name="resourcePaths">
+				<element>
+					<simple
+						name="id"
+						value="ilg.gnuarmeclipse.managedbuild.cross.option.*.include.paths" />
+					<simple-array name="values">
+						<element value="&quot;../$(sysDir)/$(includeDir)/$(newlibDir)&quot;" />
+					</simple-array>
+					<simple
+						name="path"
+						value="" />
+				</element>
+			</complex-array>
+		</process>
+	</if>
+
+	<if condition="1==1">
+		<!-- system/$(includeDir)/$(devicePeriph) -->
 		<process type="org.eclipse.cdt.core.CreateFolder">
 			<simple
 				name="projectName"
@@ -521,11 +531,44 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 		</process>
 	</if>
 
+	<if condition="1==1">
+		<!-- Create include folder -->
+		<process type="org.eclipse.cdt.core.CreateFolder">
+			<simple
+				name="projectName"
+				value="$(projectName)" />
+			<simple
+				name="path"
+				value="$(includeDir)" />
+		</process>
+
+		<!-- add to include paths -->
+		<process
+			type="org.eclipse.cdt.managedbuilder.core.AppendToMBSStringListOptionValues">
+			<simple
+				name="projectName"
+				value="$(projectName)" />
+			<complex-array name="resourcePaths">
+				<element>
+					<simple
+						name="id"
+						value="ilg.gnuarmeclipse.managedbuild.cross.option.*.include.paths" />
+					<simple-array name="values">
+						<element value="&quot;../$(includeDir)&quot;" />
+					</simple-array>
+					<simple
+						name="path"
+						value="" />
+				</element>
+			</complex-array>
+		</process>
+	</if>
+
 	<!-- ================================================================== -->
 
 	<!-- Create source folders -->
 	<if condition="1==1">
-		<!-- src -->
+		<!-- Create source folder -->
 		<process type="org.eclipse.cdt.core.CreateSourceFolder">
 			<simple
 				name="projectName"
@@ -537,7 +580,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 	</if>
 
 	<if condition="1==1">
-		<!-- system -->
+		<!-- Create system folder -->
 		<process type="org.eclipse.cdt.core.CreateSourceFolder">
 			<simple
 				name="projectName"
@@ -631,6 +674,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 						name="replaceable"
 						value="true" />
 				</element>
+				<!-- Deprecated
 				<element>
 					<simple
 						name="source"
@@ -642,6 +686,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 						name="replaceable"
 						value="true" />
 				</element>
+				-->
 			</complex-array>
 		</process>
 
@@ -650,6 +695,17 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				name="projectName"
 				value="$(projectName)" />
 			<complex-array name="files">
+				<element>
+					<simple
+						name="source"
+						value="src/main-19-clock-blinky.$(fileExtension)" />
+					<simple
+						name="target"
+						value="$(sourceDir)/main.$(fileExtension)" />
+					<simple
+						name="replaceable"
+						value="true" />
+				</element>
 				<element>
 					<simple
 						name="source"
@@ -704,10 +760,23 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				name="projectName"
 				value="$(projectName)" />
 			<complex-array name="files">
+				<!-- Deprecated
 				<element>
 					<simple
 						name="source"
 						value="$(commonDir)/include/timer-$(fileExtension).h" />
+					<simple
+						name="target"
+						value="$(includeDir)/timer.h" />
+					<simple
+						name="replaceable"
+						value="true" />
+				</element>
+				-->
+				<element>
+					<simple
+						name="source"
+						value="include/timer.h" />
 					<simple
 						name="target"
 						value="$(includeDir)/timer.h" />
@@ -726,6 +795,17 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 						name="replaceable"
 						value="true" />
 				</element>
+				<element>
+					<simple
+						name="source"
+						value="src/timer.c" />
+					<simple
+						name="target"
+						value="$(sourceDir)/timer.c" />
+					<simple
+						name="replaceable"
+						value="true" />
+				</element>
 			</complex-array>
 		</process>
 	</if>
@@ -734,6 +814,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 
 	<!-- CMSIS files -->
 	<if condition="1==1">
+		<!-- Deprecated
 		<process type="org.eclipse.embedcdt.templates.core.ConditionalCopyFolders">
 			<simple
 				name="projectName"
@@ -752,6 +833,69 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 					<simple
 						name="pattern"
 						value=".*[.](h|txt|md)" />
+					<simple
+						name="replaceable"
+						value="true" />
+				</element>
+			</complex-array>
+		</process>
+		-->
+		<process type="org.eclipse.embedcdt.templates.core.AddAbsolutePathFiles">
+			<simple
+				name="projectName"
+				value="$(projectName)" />
+			<complex-array name="files">
+				<element>
+					<simple
+						name="source"
+						value="$(commonDir)/system/include/cmsis/cmsis_compiler.h" />
+					<simple
+						name="target"
+						value="$(sysDir)/$(includeDir)/$(cmsisDir)/cmsis_compiler.h" />
+					<simple
+						name="replaceable"
+						value="true" />
+				</element>
+				<element>
+					<simple
+						name="source"
+						value="$(commonDir)/system/include/cmsis/cmsis_gcc.h" />
+					<simple
+						name="target"
+						value="$(sysDir)/$(includeDir)/$(cmsisDir)/cmsis_gcc.h" />
+					<simple
+						name="replaceable"
+						value="true" />
+				</element>
+				<element>
+					<simple
+						name="source"
+						value="$(commonDir)/system/include/cmsis/cmsis_version.h" />
+					<simple
+						name="target"
+						value="$(sysDir)/$(includeDir)/$(cmsisDir)/cmsis_version.h" />
+					<simple
+						name="replaceable"
+						value="true" />
+				</element>
+				<element>
+					<simple
+						name="source"
+						value="$(commonDir)/system/include/cmsis/core_cm0.h" />
+					<simple
+						name="target"
+						value="$(sysDir)/$(includeDir)/$(cmsisDir)/core_cm0.h" />
+					<simple
+						name="replaceable"
+						value="true" />
+				</element>
+				<element>
+					<simple
+						name="source"
+						value="$(commonDir)/system/include/cmsis/core_cm0plus.h" />
+					<simple
+						name="target"
+						value="$(sysDir)/$(includeDir)/$(cmsisDir)/core_cm0plus.h" />
 					<simple
 						name="replaceable"
 						value="true" />
@@ -784,10 +928,32 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
+						value="micro-os-plus/DEVICE/include/DEVICE_features.h" />
+					<simple
+						name="target"
+						value="$(sysDir)/$(includeDir)/$(cmsisDir)/$(CMSIS_name)_features.h" />
+					<simple
+						name="replaceable"
+						value="true" />
+				</element>
+				<element>
+					<simple
+						name="source"
 						value="micro-os-plus/DEVICE/include/DEVICE.h" />
 					<simple
 						name="target"
 						value="$(sysDir)/$(includeDir)/$(cmsisDir)/$(CMSIS_name).h" />
+					<simple
+						name="replaceable"
+						value="true" />
+				</element>
+				<element>
+					<simple
+						name="source"
+						value="micro-os-plus/DEVICE/include/device_registers.h" />
+					<simple
+						name="target"
+						value="$(sysDir)/$(includeDir)/$(cmsisDir)/device_registers.h" />
 					<simple
 						name="replaceable"
 						value="true" />
@@ -811,6 +977,17 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				name="projectName"
 				value="$(projectName)" />
 			<complex-array name="files">
+				<element>
+					<simple
+						name="source"
+						value="include/core_cm0.h" />
+					<simple
+						name="target"
+						value="$(sysDir)/$(includeDir)/$(cmsisDir)/core_cm0.h" />
+					<simple
+						name="replaceable"
+						value="true" />
+				</element>
 				<element>
 					<simple
 						name="source"
@@ -855,10 +1032,10 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
-						value="micro-os-plus/DEVICE/src/vectors_DEVICE.c" />
+						value="micro-os-plus/DEVICE/src/startup_DEVICE.c" />
 					<simple
 						name="target"
-						value="$(sysDir)/$(sourceDir)/$(cmsisDir)/vectors_$(CMSIS_name).c" />
+						value="$(sysDir)/$(sourceDir)/$(cmsisDir)/startup_$(CMSIS_name).c" />
 					<simple
 						name="replaceable"
 						value="true" />
@@ -925,6 +1102,60 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 					<simple
 						name="target"
 						value="$(sysDir)/$(includeDir)/diag/trace.h" />
+					<simple
+						name="replaceable"
+						value="true" />
+				</element>
+			</complex-array>
+		</process>
+	</if>
+
+	<if condition="1==1">
+		<process type="org.eclipse.embedcdt.templates.core.AddAbsolutePathFiles">
+			<simple
+				name="projectName"
+				value="$(projectName)" />
+			<complex-array name="files">
+				<element>
+					<simple
+						name="source"
+						value="include/callbacks.h" />
+					<simple
+						name="target"
+						value="$(sysDir)/$(includeDir)/$(newlibDir)/callbacks.h" />
+					<simple
+						name="replaceable"
+						value="true" />
+				</element>
+				<element>
+					<simple
+						name="source"
+						value="include/devassert.h" />
+					<simple
+						name="target"
+						value="$(sysDir)/$(includeDir)/$(newlibDir)/devassert.h" />
+					<simple
+						name="replaceable"
+						value="true" />
+				</element>
+				<element>
+					<simple
+						name="source"
+						value="include/startup.h" />
+					<simple
+						name="target"
+						value="$(sysDir)/$(includeDir)/$(newlibDir)/startup.h" />
+					<simple
+						name="replaceable"
+						value="true" />
+				</element>
+				<element>
+					<simple
+						name="source"
+						value="include/status.h" />
+					<simple
+						name="target"
+						value="$(sysDir)/$(includeDir)/$(newlibDir)/status.h" />
 					<simple
 						name="replaceable"
 						value="true" />
@@ -1031,6 +1262,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 	<!-- Peripheral library -->
 	<if condition="1==1">
 		<!-- micro-os-plus/DRIVERS/include & src READMEs -->
+		<!-- Deprecated
 		<process type="org.eclipse.cdt.core.AddFiles">
 			<simple
 				name="projectName"
@@ -1059,6 +1291,89 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 						value="true" />
 				</element>
 			</complex-array>
+		</process>
+		-->
+		<!-- micro-os-plus/DRIVERS/include & src & lib & READMEs -->
+		<!-- Copy all folders in peripheral library -->
+		<process type="org.eclipse.embedcdt.templates.core.ConditionalCopyFolders">
+			<simple
+				name="projectName"
+				value="$(projectName)" />
+			<simple
+				name="condition"
+				value="" />
+			<complex-array name="folders">
+				<element>
+					<simple
+						name="source"
+						value="micro-os-plus/DRIVERS/include" />
+					<simple
+						name="target"
+						value="$(sysDir)/$(includeDir)/$(driverDir)" />
+					<simple
+						name="pattern"
+						value=".*[.](h.*|txt|md)" />
+					<simple
+						name="replaceable"
+						value="true" />
+				</element>
+				<element>
+					<simple
+						name="source"
+						value="micro-os-plus/DRIVERS/src" />
+					<simple
+						name="target"
+						value="$(sysDir)/$(sourceDir)/$(driverDir)" />
+					<simple
+						name="pattern"
+						value=".*[.](c.*|txt|md)" />
+					<simple
+						name="replaceable"
+						value="true" />
+				</element>
+			</complex-array>
+		</process>
+
+		<!-- Exclude template from build in drivers folder -->
+		<process type="org.eclipse.cdt.managedbuilder.core.ExcludeResources">
+			<simple
+				name="projectName"
+				value="$(projectName)" />
+			<simple
+				name="configIdPattern"
+				value=".*" />
+			<simple-array name="filePatterns">
+				<element value=".*/.*_template[.]c" />
+			</simple-array>
+			<simple
+				name="invertConfigMatching"
+				value="false" />
+		</process>
+	</if>
+
+	<!-- ================================================================== -->
+
+	<!-- Exclude resource files from build in drivers folder -->
+	<if condition="$(excludeUnused)==true">
+		<process type="org.eclipse.cdt.managedbuilder.core.ExcludeResources">
+			<simple
+				name="projectName"
+				value="$(projectName)" />
+			<simple
+				name="configIdPattern"
+				value=".*" />
+			<simple-array name="filePatterns">
+				<!-- Reference
+				<element value=".*/$(CMSIS_name)_hal.*[.]c" />
+				--> 
+				<element value=".*/osif_.*[.]c" />
+				<element value=".*/lpi2c_interface[.]c" />
+				<element value=".*/sfspim_interface[.]c" />
+				<element value=".*/usbd_hid[.]c" />
+			</simple-array>
+			<simple
+				name="invertConfigMatching"
+				value="false" />
 		</process>
 	</if>
 
