@@ -908,7 +908,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 
 	<!-- CMSIS-device(vendor chip/platform/board part number) files -->
 	<if condition="1==1">
-		<!-- micro-os-plus/DEVICE/include -->
+		<!-- micro-os-plus/include/cmsis -->
 		<process type="org.eclipse.cdt.core.AddFiles">
 			<simple
 				name="projectName"
@@ -917,7 +917,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
-						value="micro-os-plus/DEVICE/include/README_DEVICE.txt" />
+						value="micro-os-plus/include/cmsis/README_DEVICE.txt" />
 					<simple
 						name="target"
 						value="$(sysDir)/$(includeDir)/$(cmsisDir)/README_DEVICE.txt" />
@@ -928,7 +928,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
-						value="micro-os-plus/DEVICE/include/DEVICE_features.h" />
+						value="micro-os-plus/include/cmsis/DEVICE_features.h" />
 					<simple
 						name="target"
 						value="$(sysDir)/$(includeDir)/$(cmsisDir)/$(CMSIS_name)_features.h" />
@@ -939,7 +939,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
-						value="micro-os-plus/DEVICE/include/DEVICE.h" />
+						value="micro-os-plus/include/cmsis/DEVICE.h" />
 					<simple
 						name="target"
 						value="$(sysDir)/$(includeDir)/$(cmsisDir)/$(CMSIS_name).h" />
@@ -950,7 +950,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
-						value="micro-os-plus/DEVICE/include/device_registers.h" />
+						value="micro-os-plus/include/cmsis/device_registers.h" />
 					<simple
 						name="target"
 						value="$(sysDir)/$(includeDir)/$(cmsisDir)/device_registers.h" />
@@ -961,7 +961,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
-						value="micro-os-plus/DEVICE/include/system_DEVICE.h" />
+						value="micro-os-plus/include/cmsis/system_DEVICE.h" />
 					<simple
 						name="target"
 						value="$(sysDir)/$(includeDir)/$(cmsisDir)/system_$(CMSIS_name).h" />
@@ -1010,7 +1010,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
-						value="micro-os-plus/DEVICE/src/README_DEVICE.txt" />
+						value="micro-os-plus/src/cmsis/README_DEVICE.txt" />
 					<simple
 						name="target"
 						value="$(sysDir)/$(sourceDir)/$(cmsisDir)/README_DEVICE.txt" />
@@ -1021,7 +1021,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
-						value="micro-os-plus/DEVICE/src/system_DEVICE.c" />
+						value="micro-os-plus/src/cmsis/system_DEVICE.c" />
 					<simple
 						name="target"
 						value="$(sysDir)/$(sourceDir)/$(cmsisDir)/system_$(CMSIS_name).c" />
@@ -1032,7 +1032,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
-						value="micro-os-plus/DEVICE/src/startup_DEVICE.c" />
+						value="micro-os-plus/src/cmsis/startup_DEVICE.c" />
 					<simple
 						name="target"
 						value="$(sysDir)/$(sourceDir)/$(cmsisDir)/startup_$(CMSIS_name).c" />
@@ -1261,8 +1261,8 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 
 	<!-- Peripheral library -->
 	<if condition="1==1">
-		<!-- micro-os-plus/DRIVERS/include & src READMEs -->
 		<!-- Deprecated
+		<!-- micro-os-plus/DRIVERS/include & src READMEs -->
 		<process type="org.eclipse.cdt.core.AddFiles">
 			<simple
 				name="projectName"
@@ -1293,7 +1293,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 			</complex-array>
 		</process>
 		-->
-		<!-- micro-os-plus/DRIVERS/include & src & lib & READMEs -->
+		<!-- micro-os-plus/include/drivers & src & lib & READMEs -->
 		<!-- Copy all folders in peripheral library -->
 		<process type="org.eclipse.embedcdt.templates.core.ConditionalCopyFolders">
 			<simple
@@ -1306,7 +1306,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
-						value="micro-os-plus/DRIVERS/include" />
+						value="micro-os-plus/include/drivers" />
 					<simple
 						name="target"
 						value="$(sysDir)/$(includeDir)/$(driverDir)" />
@@ -1320,7 +1320,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				<element>
 					<simple
 						name="source"
-						value="micro-os-plus/DRIVERS/src" />
+						value="micro-os-plus/src/drivers" />
 					<simple
 						name="target"
 						value="$(sysDir)/$(sourceDir)/$(driverDir)" />
