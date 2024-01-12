@@ -123,18 +123,10 @@ SystemCoreClockUpdate(void)
         case 0x3:
         {
             /* Fast IRC */
-            // if (PCC->PCCn[PCC_FSUSB_INDEX] & PCC_PCCn_PCD_MASK)
-#if defined(SPLL_96MHZ)
             {
                 // SPLL 96MHz
-                scg_out_clock = FEATURE_SCG_FIRC_FREQ0;
+                scg_out_clock = DEFAULT_SYSTEM_CLOCK;
             }
-#else
-            {
-                // SPLL 120MHz
-                scg_out_clock = FEATURE_SCG_FIRC_FREQ1;
-            }
-#endif
         }
         break;
         default:

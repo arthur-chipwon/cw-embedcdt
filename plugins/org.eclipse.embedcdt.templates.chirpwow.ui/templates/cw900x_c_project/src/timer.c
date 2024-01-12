@@ -65,33 +65,31 @@ timer_start (void)
   SysTick->RVR   = (uint32_t)(ticks - 1UL);                         /* set reload register */
   // NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL); /* set Priority for Systick Interrupt */
   {
-	  int32_t IRQn = (int32_t)SysTick_IRQn;
-	  uint32_t priority = (1UL << __NVIC_PRIO_BITS) - 1UL;
-	  if (IRQn >= 0)
-	  {
-	    NVIC->IPR[_IP_IDX(IRQn)]  = ((uint32_t)(NVIC->IPR[_IP_IDX(IRQn)]  & ~(0xFFUL << _BIT_SHIFT(IRQn))) |
-	      (((priority << (8U - __NVIC_PRIO_BITS)) & (uint32_t)0xFFUL) << _BIT_SHIFT(IRQn)));
-	  }
-	  else
-	  {
-		if (_SHP_IDX(IRQn) == 0)
-		{
-	      SCB->SHPR2 = ((uint32_t)(SCB->SHPR2 & ~(0xFFUL << _BIT_SHIFT(IRQn))) |
-	        (((priority << (8U - __NVIC_PRIO_BITS)) & (uint32_t)0xFFUL) << _BIT_SHIFT(IRQn)));
-		}
-		else
-		{
-		  SCB->SHPR3 = ((uint32_t)(SCB->SHPR3 & ~(0xFFUL << _BIT_SHIFT(IRQn))) |
-		    (((priority << (8U - __NVIC_PRIO_BITS)) & (uint32_t)0xFFUL) << _BIT_SHIFT(IRQn)));
-
-		}
-	  }
-
+    int32_t IRQn = (int32_t)SysTick_IRQn;
+    uint32_t priority = (1UL << __NVIC_PRIO_BITS) - 1UL;
+    if (IRQn >= 0)
+    {
+      NVIC->IPR[_IP_IDX(IRQn)]  = ((uint32_t)(NVIC->IPR[_IP_IDX(IRQn)]  & ~(0xFFUL << _BIT_SHIFT(IRQn))) |
+        (((priority << (8U - __NVIC_PRIO_BITS)) & (uint32_t)0xFFUL) << _BIT_SHIFT(IRQn)));
+    }
+    else
+    {
+      if (_SHP_IDX(IRQn) == 0)
+      {
+        SCB->SHPR2 = ((uint32_t)(SCB->SHPR2 & ~(0xFFUL << _BIT_SHIFT(IRQn))) |
+          (((priority << (8U - __NVIC_PRIO_BITS)) & (uint32_t)0xFFUL) << _BIT_SHIFT(IRQn)));
+      }
+      else
+      {
+        SCB->SHPR3 = ((uint32_t)(SCB->SHPR3 & ~(0xFFUL << _BIT_SHIFT(IRQn))) |
+          (((priority << (8U - __NVIC_PRIO_BITS)) & (uint32_t)0xFFUL) << _BIT_SHIFT(IRQn)));
+      }
+    }
   }
   SysTick->CVR   = 0UL;                                             /* Load the SysTick Counter Value */
   SysTick->CSR   = SysTick_CSR_CLKSOURCE_MASK |
-				   SysTick_CSR_TICKINT_MASK   |
-				   SysTick_CSR_ENABLE_MASK;                         /* Enable SysTick IRQ and SysTick Timer */
+                   SysTick_CSR_TICKINT_MASK   |
+                   SysTick_CSR_ENABLE_MASK;                         /* Enable SysTick IRQ and SysTick Timer */
   return;                                                           /* Function successful */
 }
 

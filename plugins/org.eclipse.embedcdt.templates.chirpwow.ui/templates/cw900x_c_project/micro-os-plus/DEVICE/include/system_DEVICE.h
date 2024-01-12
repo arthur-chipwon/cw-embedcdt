@@ -1,5 +1,5 @@
 /**
- * @file system_cw900x.h
+ * @file system_$(CMSIS_name).h
  * @brief The file is generated from CMSIS-Core(M) System Configuration Files.
  * @copyright Copyright (c) 2023 ChipWon Technology. All rights reserved.
  */
