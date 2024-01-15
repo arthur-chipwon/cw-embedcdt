@@ -1189,6 +1189,24 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 				</element>
 			</complex-array>
 		</process>
+		<process type="org.eclipse.embedcdt.templates.core.AddAbsolutePathFiles">
+			<simple
+				name="projectName"
+				value="$(projectName)" />
+			<complex-array name="files">
+				<element>
+					<simple
+						name="source"
+						value="micro-os-plus/src/cortexm/exception-handlers.c" />
+					<simple
+						name="target"
+						value="$(sysDir)/$(sourceDir)/cortexm/exception-handlers.c" />
+					<simple
+						name="replaceable"
+						value="true" />
+				</element>
+			</complex-array>
+		</process>
 		<process type="org.eclipse.embedcdt.templates.core.ConditionalCopyFolders">
 			<simple
 				name="projectName"
@@ -1261,8 +1279,8 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 
 	<!-- Peripheral library -->
 	<if condition="1==1">
-		<!-- Deprecated
 		<!-- micro-os-plus/DRIVERS/include & src READMEs -->
+		<!-- Deprecated
 		<process type="org.eclipse.cdt.core.AddFiles">
 			<simple
 				name="projectName"
@@ -1293,7 +1311,7 @@ and is available athttps://www.eclipse.org/legal/epl-2.0/
 			</complex-array>
 		</process>
 		-->
-		<!-- micro-os-plus/include/drivers & src & lib & READMEs -->
+		<!-- micro-os-plus/include/drivers & micro-os-plus/src/drivers & micro-os-plus/lib/drivers & READMEs -->
 		<!-- Copy all folders in peripheral library -->
 		<process type="org.eclipse.embedcdt.templates.core.ConditionalCopyFolders">
 			<simple
