@@ -21,7 +21,7 @@ extern "C" {
 #include "device_registers.h"
 #include "status.h"
 #include "callbacks.h"
-#include <clock_gating.h>
+#include "clock_gating.h"
 
 /*******************************************************************************
  * Macros, defines, enumerations, structures(with typedefs)

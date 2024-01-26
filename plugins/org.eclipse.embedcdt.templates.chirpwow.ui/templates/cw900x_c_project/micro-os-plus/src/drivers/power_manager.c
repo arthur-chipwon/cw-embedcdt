@@ -7,9 +7,9 @@
 /*******************************************************************************
  * Includes
  ******************************************************************************/
-#include <clock_gating.h>
 #include <stddef.h>
 #include "power_manager.h"
+#include "clock_gating.h"
 #include "scg_access.h"
 #include "smc_access.h"
 #include "smc_driver.h"

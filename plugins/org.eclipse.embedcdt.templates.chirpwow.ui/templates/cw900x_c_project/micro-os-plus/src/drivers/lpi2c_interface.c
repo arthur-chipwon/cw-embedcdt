@@ -8,9 +8,9 @@
 /*******************************************************************************
  * Includes
  ******************************************************************************/
-#include <clock_gating.h>
 #include <string.h>
 #include "lpi2c_interface.h"
+#include "clock_gating.h"
 #include "interrupt_manager.h"
 #include "edma_driver.h"
 

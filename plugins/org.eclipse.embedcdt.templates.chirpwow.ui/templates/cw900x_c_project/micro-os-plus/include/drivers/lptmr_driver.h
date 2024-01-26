@@ -18,7 +18,7 @@ extern "C" {
 #include <stdbool.h>
 #include <stddef.h>
 #include "device_registers.h"
-#include <clock_gating.h>
+#include "clock_gating.h"
 
 /*******************************************************************************
  * Macros, defines, enumerations, structures(with typedefs)

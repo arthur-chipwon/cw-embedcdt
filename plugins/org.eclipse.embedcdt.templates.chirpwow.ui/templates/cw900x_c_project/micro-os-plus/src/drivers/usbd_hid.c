@@ -7,11 +7,11 @@
 /*******************************************************************************
  * Includes
  ******************************************************************************/
-#include <clock_gating.h>
 #include <stdio.h>
 #include <string.h>
 #include "usbd_hid.h"
 #include "interrupt_manager.h"
+#include "clock_gating.h"
 
 /*******************************************************************************
  * Private macros, defines, enumerations, structures(with typedefs)
