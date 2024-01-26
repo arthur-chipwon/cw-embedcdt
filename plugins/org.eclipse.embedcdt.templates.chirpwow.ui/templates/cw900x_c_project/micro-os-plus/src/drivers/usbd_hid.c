@@ -1692,9 +1692,9 @@ usbd_ctrl_std_cmd_proc(void)
     FSUSB_t             *p_base      = p_state_ptr->p_base;
     usb_dev_req_t       *p_dev_req   = &(p_state_ptr->dev_req);
     const uint8_t       *p_desc      = NULL;
-    uint8_t              byte_cnt;
-    uint8_t              req_len;
-    uint8_t              xfer_len;
+    uint16_t             byte_cnt;
+    uint16_t             req_len;
+    uint16_t             xfer_len;
 
     switch (p_dev_req->brequest)
     {
@@ -1991,8 +1991,8 @@ usbd_ctrl_std_cmd_proc(void)
             }
             if (p_dev_req->wlength.sb_type.hbyte)
             {
-                printf("Error! %s-%d.\n", __FILE__, __LINE__);
-                printf("Over packet length! Length: %Xh(%d).\n",
+                printf("Warning! %s-%d.\n", __FILE__, __LINE__);
+                printf("Request length over 256 bytes! Length: %Xh(%d).\n",
                        p_dev_req->wlength.db_type.word,
                        p_dev_req->wlength.db_type.word);
             }
@@ -2000,7 +2000,7 @@ usbd_ctrl_std_cmd_proc(void)
             printf("Descriptor:\n");
             uartif_print_buffer(p_desc, byte_cnt);
 #endif
-            req_len = p_dev_req->wlength.sb_type.lbyte;
+            req_len = p_dev_req->wlength.db_type.word;
             if (byte_cnt < req_len)
             {
                 req_len = byte_cnt;
@@ -2009,9 +2009,10 @@ usbd_ctrl_std_cmd_proc(void)
                  byte_cnt += xfer_len, p_desc += xfer_len)
             {
                 xfer_len = req_len - byte_cnt;
-                if (64u < xfer_len)
+                /* For end-point 0, USBD_CTRL_EP0_PKT_LEN is 40h(64). */
+                if (USBD_CTRL_EP0_PKT_LEN < xfer_len)
                 {
-                    xfer_len = 64u;
+                    xfer_len = USBD_CTRL_EP0_PKT_LEN;
                 }
                 /** Memory copy from code area to SRAM area. */
                 memcpy(p_state_ptr->p_ep0_buffer, p_desc, xfer_len);
@@ -2021,7 +2022,7 @@ usbd_ctrl_std_cmd_proc(void)
                     ((usb_std_cfg_desc_t *)p_state_ptr->p_ep0_buffer)->bdesc_type =
                         USB_DESC_OTHER_SPEED_CONFIG;
                 }
-                usbd_ctrl_ep0_wait_pkt_sent_completed(xfer_len);
+                usbd_ctrl_ep0_wait_pkt_sent_completed((uint8_t)xfer_len);
             }
         }
         break;

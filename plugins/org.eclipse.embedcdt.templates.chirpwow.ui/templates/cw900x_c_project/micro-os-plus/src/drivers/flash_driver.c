@@ -53,6 +53,7 @@ flash_cmd_sequence(const flash_ssd_config_t *p_ssd_config)
     DEV_ASSERT(p_ssd_config != NULL);
 #endif
     flash_drv_status_t ret; /* Return code variable */
+    DISABLE_INTERRUPTS();
 
     /* Clear CCIF to launch command */
     FTFC->FSTAT |= FTFC_FSTAT_CCIF_MASK;
@@ -71,6 +72,7 @@ flash_cmd_sequence(const flash_ssd_config_t *p_ssd_config)
     ret = (flash_drv_status_t)(FTFC->FSTAT & (FTFC_FSTAT_MGSTAT0_MASK | FTFC_FSTAT_FPVIOL_MASK |
                                               FTFC_FSTAT_ACCERR_MASK | FTFC_FSTAT_RDCOLERR_MASK));
 
+    ENABLE_INTERRUPTS();
     return (ret);
 }
 END_FUNCTION_DEFINITION_RAMSECTION
