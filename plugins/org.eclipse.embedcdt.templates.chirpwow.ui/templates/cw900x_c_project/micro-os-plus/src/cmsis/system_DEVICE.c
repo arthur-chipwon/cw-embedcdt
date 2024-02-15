@@ -1,6 +1,6 @@
 /**
  * @file system_$(CMSIS_name).c
- * @brief The file is generated from CMSIS-Core(M) System Configuration Files.
+ * @brief This file is generated from CMSIS-Core(M) System Configuration Files.
  * @copyright Copyright (c) 2023 ChipWon Technology. All rights reserved.
  */
 /*
