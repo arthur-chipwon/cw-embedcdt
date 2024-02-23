@@ -102,32 +102,32 @@ void LPUART0_IRQHandler(void) __attribute__((weak, alias("Default_Handler")));
 // This relies on the linker script to place at correct location in memory.
 __attribute__((section(".isr_vector"), used)) handler_pft __isr_vectors[] = {
     //
-    (handler_pft)&_estack, /*     Initial Stack Pointer */
-    Reset_Handler,         /*     Reset Handler */
-    NMI_Handler,           /* -14 NMI Handler */
-    HardFault_Handler,     /* -13 Hard Fault Handler */
+    (handler_pft)&_estack,      /* -16 Initial Stack Pointer */
+    Reset_Handler,              /* -15 Reset Handler */
+    NMI_Handler,                /* -14 NMI Handler */
+    HardFault_Handler,          /* -13 Hard Fault Handler */
 #if defined(__ARM_ARCH_7M__) || defined(__ARM_ARCH_7EM__)
-    MemManage_Handler,     /* -12 MPU Fault Handler */
-    BusFault_Handler,      /* -11 Bus Fault Handler */
-    UsageFault_Handler,    /* -10 Usage Fault Handler */
+    MemManage_Handler,          /* -12 MPU Fault Handler */
+    BusFault_Handler,           /* -11 Bus Fault Handler */
+    UsageFault_Handler,         /* -10 Usage Fault Handler */
 #else
-    0,                     /*     Reserved */
-    0,                     /*     Reserved */
-    0,                     /*     Reserved */
+    0,                          /* -12 Reserved */
+    0,                          /* -11 Reserved */
+    0,                          /* -10 Reserved */
 #endif
-    0,                     /*     Reserved */
-    0,                     /*     Reserved */
-    0,                     /*     Reserved */
-    0,                     /*     Reserved */
-    SVC_Handler,           /*  -5 SVCall Handler */
+    0,                          /*  -9 Reserved */
+    0,                          /*  -8 Reserved */
+    0,                          /*  -7 Reserved */
+    0,                          /*  -6 Reserved */
+    SVC_Handler,                /*  -5 SVCall Handler */
 #if defined(__ARM_ARCH_7M__) || defined(__ARM_ARCH_7EM__)
-    DebugMon_Handler,      /*  -4 Debug Monitor Handler */
+    DebugMon_Handler,           /*  -4 Debug Monitor Handler */
 #else
-    0,                     /*     Reserved */
+    0,                          /*  -4 Reserved */
 #endif
-    0,                     /*     Reserved */
-    PendSV_Handler,        /*  -2 PendSV Handler */
-    SysTick_Handler,       /*  -1 SysTick Handler */
+    0,                          /*  -3 Reserved */
+    PendSV_Handler,             /*  -2 PendSV Handler */
+    SysTick_Handler,            /*  -1 SysTick Handler */
     // ----------------------------------------------------------------------
     // $(CMSIS_name) vectors
     DMA0_IRQHandler,            /*   0 DMA channel 0 transfer complete */
