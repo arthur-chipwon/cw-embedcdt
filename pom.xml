@@ -80,9 +80,9 @@
     <module>branding/org.eclipse.embedcdt.templates.xpack-branding</module>
     <module>plugins/org.eclipse.embedcdt.templates.xpack.ui</module>
     <module>features/org.eclipse.embedcdt.templates.xpack-feature</module>
-    <module>branding/org.eclipse.embedcdt.templates.chirpwow-branding</module>
-    <module>plugins/org.eclipse.embedcdt.templates.chirpwow.ui</module>
-    <module>features/org.eclipse.embedcdt.templates.chirpwow-feature</module>
+    <module>branding/org.eclipse.embedcdt.templates.chipwon-branding</module>
+    <module>plugins/org.eclipse.embedcdt.templates.chipwon.ui</module>
+    <module>features/org.eclipse.embedcdt.templates.chipwon-feature</module>
     <module>branding/org.eclipse.embedcdt.templates.stm-branding</module>
     <module>plugins/org.eclipse.embedcdt.templates.stm.ui</module>
     <module>features/org.eclipse.embedcdt.templates.stm-feature</module>

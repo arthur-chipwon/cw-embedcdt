@@ -12,11 +12,11 @@
     Liviu Ionescu
 -->
 <feature
-      id="org.eclipse.embedcdt.templates.chirpwow"
+      id="org.eclipse.embedcdt.templates.chipwon"
       label="%featureName"
       version="6.4.0.qualifier"
       provider-name="%providerName"
-      plugin="org.eclipse.embedcdt.templates.chirpwow"
+      plugin="org.eclipse.embedcdt.templates.chipwon"
       license-feature="org.eclipse.license"
       license-feature-version="0.0.0">
 
@@ -36,7 +36,7 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.embedcdt.templates.chirpwow.ui"
+         id="org.eclipse.embedcdt.templates.chipwon.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -50,7 +50,7 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.embedcdt.templates.chirpwow"
+         id="org.eclipse.embedcdt.templates.chipwon"
          download-size="0"
          install-size="0"
          version="0.0.0"
