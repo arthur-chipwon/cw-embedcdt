@@ -1186,7 +1186,9 @@ edma_stop_channel(uint8_t virtual_channel)
  * Implements    : edma_set_channel_request_and_trigger_activity
  *END**************************************************************************/
 status_t
-edma_set_channel_request_and_trigger(uint8_t virtual_channel, uint8_t request, bool b_enable_trigger)
+edma_set_channel_request_and_trigger(uint8_t virtual_channel,
+                                     uint8_t request,
+                                     bool    b_enable_trigger)
 {
     /* Check the virtual channel number is valid */
     DEV_ASSERT(virtual_channel < (uint32_t)FEATURE_DMA_VIRTUAL_CHANNELS);

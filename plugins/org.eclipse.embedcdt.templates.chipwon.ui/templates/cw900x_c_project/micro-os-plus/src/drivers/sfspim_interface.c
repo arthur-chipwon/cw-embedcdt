@@ -891,7 +891,7 @@ sfspim_configure_bus(const sfspim_config_t *p_init_config, uint32_t *p_calc_baud
 #if 0
     /* Enable sampling point delay */
     lpspi_set_sampling_point(p_base, true);
-#endif /* _CW900X_ */
+#endif
     /* Now, re-enable the LPSPI module */
     lpspi_enable(p_base);
     /* If the baud rate return is "0", it means there was an error */

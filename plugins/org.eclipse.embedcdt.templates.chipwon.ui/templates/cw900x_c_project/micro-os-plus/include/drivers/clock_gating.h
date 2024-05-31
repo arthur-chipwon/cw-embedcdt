@@ -1,5 +1,5 @@
 /**
- * @file clock_cw900x.h
+ * @file clock_gating.h
  * @brief Header file for the cw900x clock driver.
  * @copyright Copyright (c) 2023 ChipWon Technology. All rights reserved.
  */
